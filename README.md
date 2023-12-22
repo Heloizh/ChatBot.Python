@@ -1,2 +1,2 @@
 # ChatBot.Python
-ChatBot simple in Python
+Simple ChatBot using Python
