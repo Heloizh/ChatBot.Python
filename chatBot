@@ -1,0 +1,47 @@
+import tkinter as tk
+from tkinter import scrolledtext
+import nltk
+from nltk.chat.util import Chat, reflections
+
+#Lógica do chatbot
+pairs = [
+    [r'oi', ['Olá!', 'Oi!', 'Como vai?']],
+    [r'qual é o seu nome\?', ['Eu sou um chatbot.', 'Pode me chamar de ChaBot.']],
+    [r'adeus', ['Até logo!', 'Até mais!']],
+    [r'(.*)você(.*)', ['Eu sou um chatbot.', 'Sou um programa criado para conversar.']],
+    [r'(.*)ajuda(.*)', ['Posso ajudar. O que você precisa?']],
+    [r'(.*)', ['Desculpe, não entendi.', 'Pode falar mais sobre isso?']],
+]
+def send_message():
+    user_message = entry.get()
+    chat_log.insert(tk.END, f"You:{user_message}\n")
+    response = chat.respond(user_message)
+    chat_log.insert(tk.END, f"Bot:{response}\n\n")
+    entry.delete(0, tk.END)
+
+def clear_chat():
+    chat_log.delete(1.0, tk.END)
+
+nltk.download('punkt')
+chat = Chat(pairs, reflections)
+
+#interface gráfica
+root = tk.Tk()
+root.title("ChatBot")
+
+frame = tk.Frame(root)
+frame.pack(pady=10)
+
+chat_log = scrolledtext.ScrolledText(frame, width=50, height=20)
+chat_log.pack()
+
+entry = tk.Entry(frame, width=40)
+entry.pack(pady=10)
+
+send_button = tk.Button(frame, text="Enviar", command=send_message)
+send_button.pack(side=tk.LEFT, padx=10)
+
+clear_button = tk.Button(frame, text="Limpar", command=clear_chat)
+clear_button.pack(side=tk.RIGHT, padx=10)
+
+root.mainloop()
