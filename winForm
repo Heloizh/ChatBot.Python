@@ -1,0 +1,51 @@
+import cv2
+import tkinter as tk
+from PIL import Image, ImageTk
+
+class VideoPlayer:
+    def __init__(self, root, video_source):
+      
+        self.root = root
+        self.root.title("Player de Vídeo")
+        
+        #inicia a captura de vídeo do arquivo especificado
+        self.vid = cv2.VideoCapture(video_source)
+
+        #cria um canvas para exibir o vídeo
+        self.canvas = tk.Canvas(root, width=self.vid.get(cv2.CAP_PROP_FRAME_WIDTH), height=self.vid.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        self.canvas.pack()
+
+        #cria um botão para pausar/reproduzir um vídeo
+        self.btn_pause = tk.Button(root, text="Pausar", command=self.toggle_pause)
+        self.btn_pause.pack()
+
+       
+        self.paused = False
+
+        self.update()
+
+      
+        self.root.mainloop()
+
+    def update(self):
+        if not self.paused:
+            ret, frame = self.vid.read()
+            if ret:
+                self.photo = ImageTk.PhotoImage(image=Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)))
+                self.canvas.create_image(0, 0, image=self.photo, anchor=tk.NW)
+        self.root.after(30, self.update)
+
+    def toggle_pause(self):
+        self.paused = not self.paused
+
+    def __del__(self):
+        if self.vid.isOpened():
+            self.vid.release()
+
+
+video_source = r'Your video'
+
+root = tk.Tk()
+app = VideoPlayer(root, video_source)
+
+
