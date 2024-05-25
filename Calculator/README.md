@@ -104,7 +104,7 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir um Pull Request 
 
 ## Licença
 
-Este projeto está licenciado sob a [Licença MIT](LICENSE/Python).
+Este projeto está licenciado sob a Licença MIT que pode estar sendo visualzado no repositório.
 
 ## Contato
 
