@@ -19,8 +19,8 @@ Este repositório contém o código-fonte de uma calculadora simples desenvolvid
 
 1. **Clone o repositório**:
     ```bash
-    git clone 
-    cd calculator
+    git clone https://github.com/Heloizh/Python.git
+    cd Calculator
     ```
 
 2. **Execute o script**:
@@ -34,7 +34,7 @@ Este repositório contém o código-fonte de uma calculadora simples desenvolvid
 .
 ├── README.md
 ├── calculator.py
-└── screenshot.png
+└── calculadoraImage.png
 ```
 
 - **calculator.py**: Contém o código-fonte da calculadora.
