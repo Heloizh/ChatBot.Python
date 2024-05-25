@@ -47,7 +47,7 @@ Contribuições são bem-vindas! Se você deseja adicionar seus próprios projet
 
 ## Licença
 
-Este repositório é licenciado sob a [Licença MIT](LICENSE.md).
+Este repositório é licenciado sob a [Licença MIT](LICENSE).
 
 ## Contato
 
