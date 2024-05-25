@@ -3,11 +3,6 @@
 
 Este repositório contém o código-fonte de uma calculadora simples desenvolvida em Python utilizando a biblioteca Tkinter para a interface gráfica. A calculadora permite realizar operações básicas como adição, subtração, multiplicação e divisão.
 
-## Captura de Tela
-
-![Captura de Tela da Calculadora](![calculadoraImage](https://github.com/Heloizh/Python/assets/138067545/0208150e-335e-457a-97c5-1f425397d277)
-)
-
 ## Funcionalidades
 
 - **Adição**: Permite somar dois números.
@@ -25,12 +20,12 @@ Este repositório contém o código-fonte de uma calculadora simples desenvolvid
 1. **Clone o repositório**:
     ```bash
     git clone 
-    cd Calculator
+    cd calculator
     ```
 
 2. **Execute o script**:
     ```bash
-    python Calculator.py
+    python calculator.py
     ```
 
 ## Estrutura do Projeto
@@ -38,23 +33,70 @@ Este repositório contém o código-fonte de uma calculadora simples desenvolvid
 ```
 .
 ├── README.md
-├── Calculator.py
+├── calculator.py
 └── screenshot.png
 ```
 
-- **Calculator.py**: Contém o código-fonte da calculadora.
-- **CalculadoraImage.png**: Uma imagem mostrando a interface da calculadora.
+- **calculator.py**: Contém o código-fonte da calculadora.
+- **calculadoraImage.png**: Uma imagem mostrando a interface da calculadora.
 
 ## Código de Exemplo
 
-Aqui está um trecho do código principal da calculadora (`Calculator.py`):
+Aqui está um trecho do código principal da calculadora (`calculator.py`):
 
 ```python
 import tkinter as tk
 
 class Calculadora:
-   
+   from tkinter import Tk, Entry, Button, StringVar
+
+# Configurações da calculadora
+class Calculator:
+    def __init__(self, master):
+        # Janela principal {master}
+        master.title("Calculator")
+        master.geometry('357x430+0+0')  # Tamanho da interface
+        master.config(bg='gray')
+        master.resizable(False, False)
+
+        # Armazena a expressão inserida
+        self.equation = StringVar()
+        self.entry_value = ''
+
+        # Campo de entrada
+        Entry(width=17, bg='#fff', font=('Arial Bold', 28), textvariable=self.equation).place(x=0, y=0)
+
+        # Configurações dos botões e suas coordenadas
+        buttons = [
+            ('C', 0, 50, 'lightyellow', self.clear),
+            ('(', 90, 50, 'white', lambda: self.show('(')),
+            (')', 180, 50, 'white', lambda: self.show(')')),
+            ('x', 270, 50, 'white', lambda: self.show('*')),
+            ('7', 0, 125, 'white', lambda: self.show(7)),
+            ('8', 90, 125, 'white', lambda: self.show(8)),
+            ('9', 180, 125, 'white', lambda: self.show(9)),
+            ('÷', 270, 125, 'white', lambda: self.show('/')),
+            ('4', 0, 200, 'white', lambda: self.show(4)),
+            ('5', 90, 200, 'white', lambda: self.show(5)),
+            ('6', 180, 200, 'white', lambda: self.show(6)),
+            ('-', 270, 200, 'white', lambda: self.show('-')),
+            ('1', 0, 275, 'white', lambda: self.show(1)),
+            ('2', 90, 275, 'white', lambda: self.show(2)),
+            ('3', 180, 275, 'white', lambda: self.show(3)),
+            ('+', 270, 275, 'white', lambda: self.show('+')),
+            ('%', 0, 350, 'white', lambda: self.show('%')),
+            ('0', 90, 350, 'white', lambda: self.show(0)),
+            ('.', 180, 350, 'white', lambda: self.show('.')),
+            ('⌫', 270, 350, 'white', self.backspace),
+            ('=', 270, 395, 'lightblue', self.solve),
+        ]
+
+   ...
 ```
+
+## Captura de Tela
+
+Captura de Tela da Calculadora => .[Calculadora Imagem](calculadoraImage.png).
 
 ## Contribuições
 
@@ -66,7 +108,7 @@ Este projeto está licenciado sob a [Licença MIT](Python/LICENSE).
 
 ## Contato
 
-Para dúvidas ou sugestões, entre em contato com [seu-email@exemplo.com](@).
+Para dúvidas ou sugestões, entre em contato com [eloisamartins.trabalho@gmail.com](eloisamartins.trabalho@gmail.com).
 
 ---
 
